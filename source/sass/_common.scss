@@ -1,4 +1,14 @@
-.test2{
-    font-size: 70px;
-    color: #ab7a12;
+#gallery{
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#gallery .photos img{
+    width: 100%;
+    display: none;
+}
+
+#gallery .photos img:first-child{
+    display: block;
 }

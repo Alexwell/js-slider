@@ -1,41 +1,23 @@
-var text = document.querySelector('#text'),
-    selectP = document.querySelector('p'),
-    trigger = true;
+var btnPrev = document.querySelector('#gallery .buttons .prev'),
+    btnNext = document.querySelector('#gallery .buttons .next'),
+    images = document.querySelectorAll('#gallery .photos img'),
+    i = 0;
 
-// console.log(selectP)
-text.innerHTML += ' hello again!!!'
+// console.log(images);
 
-// selectP.onclick = function () {
-//     if (trigger) {
-//         selectP.innerHTML = 'clicked!';
-//         trigger = false;
-//     } else {
-//         selectP.innerHTML = 'clicked again!';
-//         trigger = true;
-//     }
-// }
-
-
-text.onclick = function () {
-    if (trigger) {
-        text.style.fontStyle = 'italic';
-        text.className = 'test2';
-        trigger = false;
-    } else {
-        text.style.fontStyle = 'normal';
-        trigger = true;
-    }
+btnPrev.onclick = function () {
+    images[i].style.display = 'none';
+    i--;
+    if (i < 0) i = images.length - 1;
+    // if (i > images.length - 1) i = 0;
+    images[i].style.display = 'block';
 }
 
-function show(obj) {
-    var a = '<ul>';
-    for (i in obj) {
-        a += '<li>' + i +  ': '  + obj[i] + '</li>';
-    }
-    a += '</ul>';
-    return a;
+btnNext.onclick = function () {
+    images[i].style.display = 'none';
+    i++;
+    if (i > images.length - 1) i = 0;
+    images[i].style.display = 'block';
+
+
 }
-
-
-
-selectP.innerHTML = show(text.style);
