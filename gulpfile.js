@@ -36,10 +36,10 @@ gulp.task('sass:compile', function(){
 	return gulp.src('source/sass/main.+(sass|scss)')
 		.pipe(sourcemaps.init())
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-		.pipe(autoprefixer({browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7']}))
 		.pipe(rename('main.min.css'))
+		.pipe(autoprefixer({browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7']}))
 		.pipe(sourcemaps.write('./maps'))
-		.pipe(gulp.dest('build/css'));
+		.pipe(gulp.dest('./build/css'));
 });
 
 /*----------------JS-----------------*/

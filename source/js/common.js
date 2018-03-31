@@ -6,18 +6,15 @@ var btnPrev = document.querySelector('#gallery .buttons .prev'),
 // console.log(images);
 
 btnPrev.onclick = function () {
-    images[i].style.display = 'none';
+    images[i].className = '';
     i--;
     if (i < 0) i = images.length - 1;
-    // if (i > images.length - 1) i = 0;
-    images[i].style.display = 'block';
+    images[i].className = 'showed';
 }
 
 btnNext.onclick = function () {
-    images[i].style.display = 'none';
+    images[i].className = '';
     i++;
     if (i > images.length - 1) i = 0;
-    images[i].style.display = 'block';
-
-
+    images[i].className = 'showed';
 }

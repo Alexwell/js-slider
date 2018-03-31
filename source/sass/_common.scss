@@ -1,14 +1,22 @@
-#gallery{
+#gallery {
     width: 600px;
     margin: 0 auto;
     text-align: center;
 }
 
-#gallery .photos img{
-    width: 100%;
-    display: none;
+#gallery .photos {
+    height: 400px;
+    position: relative;
 }
 
-#gallery .photos img:first-child{
-    display: block;
+#gallery .photos img {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+#gallery .photos img.showed {
+    opacity: 1;
 }
