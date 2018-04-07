@@ -23,12 +23,13 @@ window.onload = function () {
         images[i].className = 'showed';
     }
 
-    function listNext() {
+    function listNext(f) {
+        var callback = f || function () {};
         images[i].className = '';
         i++;
         if (i > images.length - 1) {
             i = 0;
-            testCallback();
+            callback();
         }
         images[i].className = 'showed';
     }
