@@ -10,7 +10,7 @@ window.onload = function () {
 
     btnNext.onclick = next;
 
-    var testInterval = setInterval(next, 2000);
+    var testInterval = setInterval(next, 1000);
 
     function next() {
         listNext(testCallback);
@@ -35,7 +35,7 @@ window.onload = function () {
 
     function testCallback() {
         callbackCounter++;
-        console.log("Hello from callback " + callbackCounter + "!")
+        console.log("Hello from callback " + callbackCounter + " !")
     }
 
 }
