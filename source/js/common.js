@@ -1,20 +1,46 @@
-var btnPrev = document.querySelector('#gallery .buttons .prev'),
-    btnNext = document.querySelector('#gallery .buttons .next'),
-    images = document.querySelectorAll('#gallery .photos img'),
-    i = 0;
+window.onload = function () {
+    var slider3 = new Slider({
+        images: document.querySelectorAll('.gallery-1 .photos img'),
+        btnPrev: document.querySelector('.gallery-1 .buttons .prev'),
+        btnNext: document.querySelector('.gallery-1 .buttons .next'),
+        auto: true
+    });
 
-// console.log(images);
+    function Slider(params) {
+        this.images = params.images;
+        this.btnPrev = params.btnPrev;
+        this.btnNext = params.btnNext;
+        this.auto = params.auto;
 
-btnPrev.onclick = function () {
-    images[i].className = '';
-    i--;
-    if (i < 0) i = images.length - 1;
-    images[i].className = 'showed';
-}
+        var imgContainer = this.images,
+            i = 0;
 
-btnNext.onclick = function () {
-    images[i].className = '';
-    i++;
-    if (i > images.length - 1) i = 0;
-    images[i].className = 'showed';
+        this.prev = function () {
+            imgContainer[i].classList.remove('showed');
+            i--;
+            if (i < 0) {
+                i = imgContainer.length - 1;
+            }
+            imgContainer[i].classList.add('showed');
+        }
+        this.next = function (cb) {
+            imgContainer[i].classList.remove('showed');
+            i++;
+            if (i >= imgContainer.length) {
+                i = 0;
+            }
+            imgContainer[i].classList.add('showed');
+        }
+
+        var nextF = this.next,
+            prevF = this.prev;
+
+        this.btnNext.onclick = nextF;
+        this.btnPrev.onclick = prevF;
+        if (this.auto) setInterval(nextF, 1000);
+
+        this.userCallback = function () {
+            console.log("Hello from user callback!");
+        }
+    }
 }

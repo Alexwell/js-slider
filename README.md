@@ -1,1 +1,1 @@
-# js features testing
+# js simple slider
