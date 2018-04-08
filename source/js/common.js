@@ -23,7 +23,7 @@ window.onload = function () {
             }
             imgContainer[i].classList.add('showed');
         }
-        this.next = function () {
+        this.next = function (cb) {
             imgContainer[i].classList.remove('showed');
             i++;
             if (i >= imgContainer.length) {
@@ -37,5 +37,10 @@ window.onload = function () {
 
         this.btnNext.onclick = nextF;
         this.btnPrev.onclick = prevF;
+        if (this.auto) setInterval(nextF, 1000);
+
+        this.userCallback = function () {
+            console.log("Hello from user callback!");
+        }
     }
 }
