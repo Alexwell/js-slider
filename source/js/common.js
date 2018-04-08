@@ -38,17 +38,23 @@ window.onload = function () {
     //     callbackCounter++;
     //     console.log("Hello from callback " + callbackCounter + " !")
     // }
- 
+
     var images = document.querySelectorAll('.gallery-1 .photos img');
 
-    var slider = new Slider(images);
+    var slider1 = new Slider(images);
 
     document.querySelector('.gallery-1 .buttons .prev').onclick = function () {
-        slider.prev();
+        slider1.prev();
     };
     document.querySelector('.gallery-1 .buttons .next').onclick = function () {
-        slider.next();
+        slider1.next();
     };
+
+    var testInterval = setInterval(next, 1000);
+
+    function next() {
+        slider1.next();
+    }
 
     var images2 = document.querySelectorAll('.gallery-2 .photos img');
     var slider2 = new Slider(images2);
